@@ -1,0 +1,33 @@
+
+<script>
+
+const mixedArray = ['PIZZA', 10, true, 25, false, "Wings"]
+
+const lowerCaseWords = (array) => {
+    return new Promise((resolve, reject) => {
+        let newArray = [];
+        array.map((element, index) => {
+            if(typeof (element) == "string") {
+                newArray.push(element.toLowerCase());
+                resolve(newArray);
+            }
+            else {
+                reject(Error(`Something went wrong!`));
+            }
+        })
+    })
+}
+
+lowerCaseWords(mixedArray)
+        .then(function (done) {
+            console.log(done);
+        })
+
+        .catch(function (error) {
+            console.log(error)
+        })
+
+// newArray = lowerCaseWords(mixedArray)
+// console.log(newArray);
+
+</script>

@@ -1,0 +1,37 @@
+<script>
+
+function resolvedPromise(boolean) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(() => {
+            if(boolean==true) {
+                let successMessage = `delayed success!`;
+                resolve(successMessage);
+            }
+            else {
+                let rejectMessage = `delayed exception`;
+        reject(rejectMessage);
+            }
+                
+        }, 500);
+    })
+}
+
+resolvedPromise(true)
+        .then(function (done) {
+            console.log(done);
+        })
+
+        .catch(function (error) {
+            console.log(error)
+        })
+
+resolvedPromise(false)
+.then(function (done) {
+    console.log(done);
+})
+
+.catch(function (error) {
+    console.log(error)
+})
+
+</script>
